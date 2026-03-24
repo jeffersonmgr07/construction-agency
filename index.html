@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carlos Construction Agency</title>
+  <meta name="description" content="Professional home remodeling and repair services." />
+  <style>
+    :root {
+      --primary: #f59f00;
+      --primary-dark: #d78600;
+      --dark: #1f232b;
+      --gray: #6c727f;
+      --light: #f7f7f8;
+      --white: #ffffff;
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+      --radius: 22px;
+      --max-width: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border: none;
+      border-radius: 999px;
+      padding: 0.95rem 1.35rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255, 255, 255, 0.65);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      font-size: clamp(1.9rem, 2.8vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      color: var(--gray);
+      max-width: 720px;
+      margin-bottom: 2rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 78px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      font-weight: 900;
+      letter-spacing: 0.03em;
+      line-height: 0.95;
+    }
+
+    .brand-top {
+      color: var(--primary);
+      font-size: 1.7rem;
+    }
+
+    .brand-bottom {
+      color: var(--dark);
+      font-size: 1.15rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--dark);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .lang-toggle {
+      background: var(--dark);
+      color: var(--white);
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: grid;
+      align-items: center;
+      background:
+        linear-gradient(100deg, rgba(16, 18, 24, 0.88) 0%, rgba(16, 18, 24, 0.72) 46%, rgba(16, 18, 24, 0.38) 100%),
+        url('assets/hero-construction.jpg') center/cover no-repeat;
+      color: var(--white);
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -12% -20% auto;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,159,0,0.28), rgba(245,159,0,0));
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(245, 159, 0, 0.16);
+      color: #ffd58a;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(245, 159, 0, 0.4);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      line-height: 0.98;
+      margin-bottom: 1rem;
+      max-width: 760px;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: rgba(255, 255, 255, 0.88);
+      max-width: 650px;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .hero-cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .mini-card, .contact-card, .service-card, .review-card, .gallery-card {
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .mini-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 1rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .mini-card strong {
+      display: block;
+      font-size: 1.4rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+    }
+
+    .contact-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .contact-label {
+      color: #ffd58a;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .contact-value {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-top: 0.2rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 1.5rem;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: rgba(245, 159, 0, 0.12);
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+      margin-bottom: 0.65rem;
+      font-size: 1.18rem;
+    }
+
+    .service-card p {
+      color: var(--gray);
+      font-size: 0.98rem;
+    }
+
+    .highlight {
+      background: linear-gradient(180deg, #fff8ea 0%, #ffffff 100%);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .features-list {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+      padding: 1rem;
+      background: var(--white);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    .feature-bullet {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(245, 159, 0, 0.14);
+      color: var(--primary-dark);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      flex: 0 0 34px;
+    }
+
+    .about-panel {
+      background: var(--dark);
+      color: var(--white);
+      padding: 2rem;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-panel p {
+      color: rgba(255,255,255,0.8);
+      margin-top: 1rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-card {
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 260px;
+    }
+
+    .before, .after {
+      position: relative;
+      padding: 1rem;
+      display: flex;
+      align-items: flex-end;
+      font-weight: 800;
+      color: var(--white);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .before::before, .after::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.68), rgba(0,0,0,0.12));
+    }
+
+    .before span, .after span {
+      position: relative;
+      z-index: 1;
+      background: rgba(0,0,0,0.35);
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .gallery-copy {
+      padding: 1.1rem 1.1rem 1.3rem;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .review-card {
+      background: var(--white);
+      padding: 1.5rem;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .stars {
+      color: var(--primary);
+      letter-spacing: 0.18em;
+      font-size: 1rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .review-card p {
+      color: var(--gray);
+      margin-bottom: 1rem;
+    }
+
+    .reviewer {
+      font-weight: 800;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, #1f232b, #2d3340);
+      color: var(--white);
+      border-radius: 34px;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .cta p {
+      color: rgba(255,255,255,0.82);
+      margin-top: 0.5rem;
+    }
+
+    footer {
+      padding: 2.25rem 0 3rem;
+      color: var(--gray);
+      text-align: center;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #25D366;
+      color: white;
+      box-shadow: 0 18px 40px rgba(37, 211, 102, 0.35);
+      z-index: 1100;
+      font-size: 1.8rem;
+      font-weight: 900;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-2px) scale(1.02);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .two-col,
+      .services-grid,
+      .gallery-grid,
+      .reviews-grid,
+      .cta {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 4rem 0;
+      }
+
+      .hero-cards {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        align-items: flex-start;
+        padding: 0.9rem 0;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .hero-cards,
+      .before-after {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 4rem 0;
+      }
+
+      .cta {
+        border-radius: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#home" class="brand" aria-label="Carlos Construction Agency home">
+        <span class="brand-top">CARLOS</span>
+        <span class="brand-bottom">CONSTRUCTION AGENCY</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#services" data-i18n="navServices">Services</a>
+        <a href="#gallery" data-i18n="navGallery">Our Work</a>
+        <a href="#reviews" data-i18n="navReviews">Reviews</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
+        <button class="lang-toggle" id="languageToggle">ES</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="hero-badge" data-i18n="heroBadge">Professional Home Remodeling & Repairs</span>
+          <h1 data-i18n="heroTitle">Reliable remodeling solutions for kitchens, bathrooms, roofs, basements, and more.</h1>
+          <p data-i18n="heroText">Carlos Construction Agency delivers quality craftsmanship, clean finishes, and dependable service for homeowners who want beautiful and durable results.</p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact" data-i18n="heroCtaPrimary">Request a Free Estimate</a>
+            <a class="btn btn-outline" href="#gallery" data-i18n="heroCtaSecondary">See Our Work</a>
+          </div>
+
+          <div class="hero-cards">
+            <div class="mini-card">
+              <strong>10+</strong>
+              <span data-i18n="statOne">Years of combined hands-on experience</span>
+            </div>
+            <div class="mini-card">
+              <strong>100%</strong>
+              <span data-i18n="statTwo">Focused on detail, finish, and client satisfaction</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="contact-card" id="contact">
+          <h3 data-i18n="contactTitle">Talk to our team today</h3>
+          <div class="contact-item">
+            <span class="contact-label">WhatsApp Español</span>
+            <a class="contact-value" href="https://wa.me/17322937117" target="_blank" rel="noreferrer">+1 (732) 293-7117</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">WhatsApp English</span>
+            <a class="contact-value" href="https://wa.me/17322778283" target="_blank" rel="noreferrer">+1 (732) 277-8283</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label" data-i18n="coverageLabel">Service coverage</span>
+            <span class="contact-value" data-i18n="coverageValue">Home remodeling, repairs, interior and exterior improvements</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <h2 class="section-title" data-i18n="servicesTitle">Full-service construction and remodeling</h2>
+        <p class="section-subtitle" data-i18n="servicesSubtitle">From small repairs to large upgrades, we provide skilled labor and professional project execution for the services shown in your flyer.</p>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">🏠</div>
+            <h3 data-i18n="service1Title">Kitchen & Bathroom Remodeling</h3>
+            <p data-i18n="service1Text">Modern layouts, better storage, quality finishes, fixture updates, and improved functionality.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🪟</div>
+            <h3 data-i18n="service2Title">Doors, Windows & Painting</h3>
+            <p data-i18n="service2Text">Interior and exterior painting plus installation or replacement of doors and windows.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🏚️</div>
+            <h3 data-i18n="service3Title">Roofing, Siding & Gutters</h3>
+            <p data-i18n="service3Text">Protection for your home with durable roofing work, siding improvements, and gutter solutions.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🔧</div>
+            <h3 data-i18n="service4Title">Plumbing & Electrical</h3>
+            <p data-i18n="service4Text">Practical upgrades and repairs for essential home systems with a clean and efficient finish.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🧱</div>
+            <h3 data-i18n="service5Title">Concrete, Sidewalks & Steps</h3>
+            <p data-i18n="service5Text">Concrete improvements for safer, stronger, and more attractive exterior spaces.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🪵</div>
+            <h3 data-i18n="service6Title">Flooring, Tile & Drywall</h3>
+            <p data-i18n="service6Text">Smooth walls, precise tile work, and flooring installations that refresh your interior.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🏡</div>
+            <h3 data-i18n="service7Title">Basement Finishing</h3>
+            <p data-i18n="service7Text">Turn unfinished basement areas into practical, beautiful living space.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">💦</div>
+            <h3 data-i18n="service8Title">Power Washing</h3>
+            <p data-i18n="service8Text">Restore curb appeal by removing dirt, buildup, and weather stains from exterior surfaces.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">⭐</div>
+            <h3 data-i18n="service9Title">Professional Results</h3>
+            <p data-i18n="service9Text">Clear communication, polished workmanship, and a professional look on both mobile and desktop.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section highlight">
+      <div class="container two-col">
+        <div>
+          <h2 class="section-title" data-i18n="whyTitle">Why homeowners choose Carlos Construction Agency</h2>
+          <p class="section-subtitle" data-i18n="whySubtitle">We combine professionalism, practical solutions, and visually strong finishes that help your home feel renewed and valuable.</p>
+
+          <div class="features-list">
+            <div class="feature-item">
+              <div class="feature-bullet">✓</div>
+              <div>
+                <strong data-i18n="feature1Title">Clean, trustworthy service</strong>
+                <p data-i18n="feature1Text">We aim to deliver organized projects, clear communication, and dependable timelines.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-bullet">✓</div>
+              <div>
+                <strong data-i18n="feature2Title">Interior and exterior expertise</strong>
+                <p data-i18n="feature2Text">One company for remodeling, repairs, finishes, upgrades, and curb-appeal improvements.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-bullet">✓</div>
+              <div>
+                <strong data-i18n="feature3Title">Mobile-ready contact options</strong>
+                <p data-i18n="feature3Text">Visitors can switch language and contact the correct WhatsApp number with one tap.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-panel">
+          <h3 data-i18n="aboutTitle">Professional home improvement presentation</h3>
+          <p data-i18n="aboutText">This website is designed to feel premium and modern, with bilingual navigation, responsive layouts, before-and-after showcase sections, and strong calls to action for new clients.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <h2 class="section-title" data-i18n="galleryTitle">Rate our work</h2>
+        <p class="section-subtitle" data-i18n="gallerySubtitle">Use this area to show before-and-after photos of your projects. Replace these example images with your own job photos inside the assets folder.</p>
+
+        <div class="gallery-grid">
+          <article class="gallery-card">
+            <div class="before-after">
+              <div class="before" style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80')"><span data-i18n="beforeLabel">Before</span></div>
+              <div class="after" style="background-image:url('https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=80')"><span data-i18n="afterLabel">After</span></div>
+            </div>
+            <div class="gallery-copy">
+              <h3 data-i18n="gallery1Title">Kitchen transformation</h3>
+              <p data-i18n="gallery1Text">Cabinets, countertops, backsplash, lighting, and a cleaner modern layout.</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <div class="before-after">
+              <div class="before" style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80')"><span data-i18n="beforeLabel">Before</span></div>
+              <div class="after" style="background-image:url('https://images.unsplash.com/photo-1505693527504-bf54d5e88f7d?auto=format&fit=crop&w=800&q=80')"><span data-i18n="afterLabel">After</span></div>
+            </div>
+            <div class="gallery-copy">
+              <h3 data-i18n="gallery2Title">Bathroom renovation</h3>
+              <p data-i18n="gallery2Text">Upgraded tile, shower area, vanity, and a more polished finish.</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <div class="before-after">
+              <div class="before" style="background-image:url('https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=800&q=80')"><span data-i18n="beforeLabel">Before</span></div>
+              <div class="after" style="background-image:url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80')"><span data-i18n="afterLabel">After</span></div>
+            </div>
+            <div class="gallery-copy">
+              <h3 data-i18n="gallery3Title">Exterior improvement</h3>
+              <p data-i18n="gallery3Text">Fresh paint, cleaner surfaces, and stronger curb appeal.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section highlight" id="reviews">
+      <div class="container">
+        <h2 class="section-title" data-i18n="reviewsTitle">5-star client comments</h2>
+        <p class="section-subtitle" data-i18n="reviewsSubtitle">These are sample testimonials you can replace later with real customer feedback from your projects.</p>
+
+        <div class="reviews-grid">
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p data-i18n="review1Text">Carlos and his team transformed our kitchen beautifully. The finish looks elegant, the work was clean, and they were very professional from start to finish.</p>
+            <div class="reviewer">— Melissa R.</div>
+          </article>
+
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p data-i18n="review2Text">We hired them for bathroom remodeling and painting. Everything looked amazing, and they paid attention to every detail. Highly recommended.</p>
+            <div class="reviewer">— Daniel T.</div>
+          </article>
+
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p data-i18n="review3Text">Excellent service. They helped with drywall, flooring, and repairs in the basement. Great communication and beautiful results.</p>
+            <div class="reviewer">— Patricia M.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <h2 data-i18n="ctaTitle">Ready to upgrade your home?</h2>
+            <p data-i18n="ctaText">Contact Carlos Construction Agency today and start your next remodeling or repair project with confidence.</p>
+          </div>
+          <a href="#contact" class="btn btn-primary" data-i18n="ctaButton">Contact Us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><strong>Carlos Construction Agency</strong> — <span data-i18n="footerText">Professional home remodeling and repair services.</span></p>
+    </div>
+  </footer>
+
+  <a id="whatsappFloat" class="whatsapp-float" href="https://wa.me/17322778283" target="_blank" rel="noreferrer" aria-label="Open WhatsApp">✆</a>
+
+  <script>
+    const translations = {
+      en: {
+        navServices: 'Services',
+        navGallery: 'Our Work',
+        navReviews: 'Reviews',
+        navContact: 'Contact',
+        heroBadge: 'Professional Home Remodeling & Repairs',
+        heroTitle: 'Reliable remodeling solutions for kitchens, bathrooms, roofs, basements, and more.',
+        heroText: 'Carlos Construction Agency delivers quality craftsmanship, clean finishes, and dependable service for homeowners who want beautiful and durable results.',
+        heroCtaPrimary: 'Request a Free Estimate',
+        heroCtaSecondary: 'See Our Work',
+        statOne: 'Years of combined hands-on experience',
+        statTwo: 'Focused on detail, finish, and client satisfaction',
+        contactTitle: 'Talk to our team today',
+        coverageLabel: 'Service coverage',
+        coverageValue: 'Home remodeling, repairs, interior and exterior improvements',
+        servicesTitle: 'Full-service construction and remodeling',
+        servicesSubtitle: 'From small repairs to large upgrades, we provide skilled labor and professional project execution for the services shown in your flyer.',
+        service1Title: 'Kitchen & Bathroom Remodeling',
+        service1Text: 'Modern layouts, better storage, quality finishes, fixture updates, and improved functionality.',
+        service2Title: 'Doors, Windows & Painting',
+        service2Text: 'Interior and exterior painting plus installation or replacement of doors and windows.',
+        service3Title: 'Roofing, Siding & Gutters',
+        service3Text: 'Protection for your home with durable roofing work, siding improvements, and gutter solutions.',
+        service4Title: 'Plumbing & Electrical',
+        service4Text: 'Practical upgrades and repairs for essential home systems with a clean and efficient finish.',
+        service5Title: 'Concrete, Sidewalks & Steps',
+        service5Text: 'Concrete improvements for safer, stronger, and more attractive exterior spaces.',
+        service6Title: 'Flooring, Tile & Drywall',
+        service6Text: 'Smooth walls, precise tile work, and flooring installations that refresh your interior.',
+        service7Title: 'Basement Finishing',
+        service7Text: 'Turn unfinished basement areas into practical, beautiful living space.',
+        service8Title: 'Power Washing',
+        service8Text: 'Restore curb appeal by removing dirt, buildup, and weather stains from exterior surfaces.',
+        service9Title: 'Professional Results',
+        service9Text: 'Clear communication, polished workmanship, and a professional look on both mobile and desktop.',
+        whyTitle: 'Why homeowners choose Carlos Construction Agency',
+        whySubtitle: 'We combine professionalism, practical solutions, and visually strong finishes that help your home feel renewed and valuable.',
+        feature1Title: 'Clean, trustworthy service',
+        feature1Text: 'We aim to deliver organized projects, clear communication, and dependable timelines.',
+        feature2Title: 'Interior and exterior expertise',
+        feature2Text: 'One company for remodeling, repairs, finishes, upgrades, and curb-appeal improvements.',
+        feature3Title: 'Mobile-ready contact options',
+        feature3Text: 'Visitors can switch language and contact the correct WhatsApp number with one tap.',
+        aboutTitle: 'Professional home improvement presentation',
+        aboutText: 'This website is designed to feel premium and modern, with bilingual navigation, responsive layouts, before-and-after showcase sections, and strong calls to action for new clients.',
+        galleryTitle: 'Rate our work',
+        gallerySubtitle: 'Use this area to show before-and-after photos of your projects. Replace these example images with your own job photos inside the assets folder.',
+        beforeLabel: 'Before',
+        afterLabel: 'After',
+        gallery1Title: 'Kitchen transformation',
+        gallery1Text: 'Cabinets, countertops, backsplash, lighting, and a cleaner modern layout.',
+        gallery2Title: 'Bathroom renovation',
+        gallery2Text: 'Upgraded tile, shower area, vanity, and a more polished finish.',
+        gallery3Title: 'Exterior improvement',
+        gallery3Text: 'Fresh paint, cleaner surfaces, and stronger curb appeal.',
+        reviewsTitle: '5-star client comments',
+        reviewsSubtitle: 'These are sample testimonials you can replace later with real customer feedback from your projects.',
+        review1Text: 'Carlos and his team transformed our kitchen beautifully. The finish looks elegant, the work was clean, and they were very professional from start to finish.',
+        review2Text: 'We hired them for bathroom remodeling and painting. Everything looked amazing, and they paid attention to every detail. Highly recommended.',
+        review3Text: 'Excellent service. They helped with drywall, flooring, and repairs in the basement. Great communication and beautiful results.',
+        ctaTitle: 'Ready to upgrade your home?',
+        ctaText: 'Contact Carlos Construction Agency today and start your next remodeling or repair project with confidence.',
+        ctaButton: 'Contact Us',
+        footerText: 'Professional home remodeling and repair services.'
+      },
+      es: {
+        navServices: 'Servicios',
+        navGallery: 'Nuestros trabajos',
+        navReviews: 'Reseñas',
+        navContact: 'Contacto',
+        heroBadge: 'Remodelación y reparaciones profesionales para el hogar',
+        heroTitle: 'Soluciones confiables de remodelación para cocinas, baños, techos, sótanos y mucho más.',
+        heroText: 'Carlos Construction Agency ofrece mano de obra de calidad, acabados limpios y servicio confiable para propietarios que desean resultados duraderos y elegantes.',
+        heroCtaPrimary: 'Solicita un estimado gratis',
+        heroCtaSecondary: 'Ver nuestros trabajos',
+        statOne: 'Años de experiencia práctica combinada',
+        statTwo: 'Enfoque total en detalle, acabado y satisfacción del cliente',
+        contactTitle: 'Habla con nuestro equipo hoy',
+        coverageLabel: 'Cobertura de servicios',
+        coverageValue: 'Remodelación del hogar, reparaciones y mejoras interiores y exteriores',
+        servicesTitle: 'Construcción y remodelación de servicio completo',
+        servicesSubtitle: 'Desde reparaciones pequeñas hasta mejoras grandes, brindamos mano de obra calificada y ejecución profesional para todos los servicios de tu anuncio.',
+        service1Title: 'Remodelación de cocina y baño',
+        service1Text: 'Distribuciones modernas, mejor almacenamiento, acabados de calidad, actualización de accesorios y mayor funcionalidad.',
+        service2Title: 'Puertas, ventanas y pintura',
+        service2Text: 'Pintura interior y exterior, además de instalación o reemplazo de puertas y ventanas.',
+        service3Title: 'Techos, siding y canaletas',
+        service3Text: 'Protección para tu hogar con trabajos duraderos en techos, siding y soluciones de canaletas.',
+        service4Title: 'Plomería y electricidad',
+        service4Text: 'Mejoras y reparaciones prácticas para sistemas esenciales del hogar con acabado limpio y eficiente.',
+        service5Title: 'Concreto, aceras y escalones',
+        service5Text: 'Mejoras de concreto para espacios exteriores más seguros, fuertes y atractivos.',
+        service6Title: 'Pisos, tile y drywall',
+        service6Text: 'Paredes lisas, colocación precisa de tile e instalación de pisos que renuevan tu interior.',
+        service7Title: 'Terminación de sótanos',
+        service7Text: 'Convierte áreas sin terminar en espacios útiles y hermosos para vivir.',
+        service8Title: 'Lavado a presión',
+        service8Text: 'Recupera la apariencia exterior eliminando suciedad, acumulación y manchas del clima.',
+        service9Title: 'Resultados profesionales',
+        service9Text: 'Comunicación clara, trabajo pulido y una presentación profesional en celular y computadora.',
+        whyTitle: 'Por qué los propietarios eligen a Carlos Construction Agency',
+        whySubtitle: 'Combinamos profesionalismo, soluciones prácticas y acabados visualmente sólidos que renuevan y valorizan tu hogar.',
+        feature1Title: 'Servicio limpio y confiable',
+        feature1Text: 'Buscamos entregar proyectos organizados, comunicación clara y tiempos confiables.',
+        feature2Title: 'Experiencia interior y exterior',
+        feature2Text: 'Una sola empresa para remodelación, reparaciones, acabados, mejoras y renovación exterior.',
+        feature3Title: 'Opciones de contacto listas para móvil',
+        feature3Text: 'Los visitantes pueden cambiar de idioma y contactar el WhatsApp correcto con un toque.',
+        aboutTitle: 'Presentación profesional de mejoras para el hogar',
+        aboutText: 'Este sitio está diseñado para verse premium y moderno, con navegación bilingüe, diseño adaptable, secciones de antes y después y llamados a la acción sólidos para conseguir clientes.',
+        galleryTitle: 'Califica nuestros trabajos',
+        gallerySubtitle: 'Usa esta área para mostrar fotos de antes y después de tus proyectos. Reemplaza estas imágenes de ejemplo por fotos reales dentro de la carpeta assets.',
+        beforeLabel: 'Antes',
+        afterLabel: 'Después',
+        gallery1Title: 'Transformación de cocina',
+        gallery1Text: 'Gabinetes, countertops, backsplash, iluminación y una distribución más moderna y limpia.',
+        gallery2Title: 'Renovación de baño',
+        gallery2Text: 'Tile renovado, área de ducha, vanity y un acabado mucho más pulido.',
+        gallery3Title: 'Mejora exterior',
+        gallery3Text: 'Pintura fresca, superficies limpias y mejor apariencia de la fachada.',
+        reviewsTitle: 'Comentarios de clientes con 5 estrellas',
+        reviewsSubtitle: 'Estas son reseñas de ejemplo que luego puedes reemplazar por comentarios reales de tus clientes.',
+        review1Text: 'Carlos y su equipo transformaron nuestra cocina de una forma increíble. El acabado se ve elegante, el trabajo fue limpio y fueron muy profesionales desde el inicio hasta el final.',
+        review2Text: 'Los contratamos para remodelar el baño y pintar varias áreas. Todo quedó hermoso y cuidaron cada detalle. Súper recomendados.',
+        review3Text: 'Excelente servicio. Nos ayudaron con drywall, pisos y reparaciones en el sótano. Muy buena comunicación y resultados hermosos.',
+        ctaTitle: '¿Listo para mejorar tu hogar?',
+        ctaText: 'Contacta hoy a Carlos Construction Agency y comienza tu próximo proyecto de remodelación o reparación con confianza.',
+        ctaButton: 'Contáctanos',
+        footerText: 'Servicios profesionales de remodelación y reparación para el hogar.'
+      }
+    };
+
+    let currentLang = 'en';
+
+    const whatsappNumbers = {
+      en: '17322778283',
+      es: '17322937117'
+    };
+
+    const languageToggle = document.getElementById('languageToggle');
+    const whatsappFloat = document.getElementById('whatsappFloat');
+
+    function applyTranslations(lang) {
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach((element) => {
+        const key = element.dataset.i18n;
+        if (translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+
+      languageToggle.textContent = lang === 'en' ? 'ES' : 'EN';
+      whatsappFloat.href = `https://wa.me/${whatsappNumbers[lang]}`;
+      whatsappFloat.setAttribute('aria-label', lang === 'en' ? 'Open WhatsApp in English' : 'Abrir WhatsApp en Español');
+      document.title = lang === 'en' ? 'Carlos Construction Agency' : 'Carlos Construction Agency | Español';
+    }
+
+    languageToggle.addEventListener('click', () => {
+      currentLang = currentLang === 'en' ? 'es' : 'en';
+      applyTranslations(currentLang);
+    });
+
+    applyTranslations(currentLang);
+  </script>
+</body>
+</html>
