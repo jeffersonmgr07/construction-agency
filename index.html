@@ -136,11 +136,14 @@
     }
 
     .brand {
-      font-weight: 900;
-      font-size: 2rem;
-      letter-spacing: -0.04em;
-      color: #fff;
-      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .brand img {
+      height: 56px;
+      width: auto;
+      object-fit: contain;
     }
 
     .nav-links {
@@ -279,38 +282,49 @@
 
     .hero-photo {
       width: 100%;
-      max-width: 610px;
-      min-height: 640px;
+      max-width: 560px;
+      min-height: 560px;
       border-radius: 28px;
       overflow: hidden;
       box-shadow: 0 24px 70px rgba(0,0,0,0.24);
       background:
-        linear-gradient(rgba(0,0,0,0.12), rgba(0,0,0,0.12)),
-        url('assets/hero-portrait.jpg') center/cover no-repeat;
+        linear-gradient(rgba(0,0,0,0.06), rgba(0,0,0,0.06)),
+        url('assets/hero-portrait.jpg') center 18% / contain no-repeat,
+        #dfe3e6;
     }
 
     .hero-stamp {
       position: absolute;
       left: -20px;
       bottom: 55px;
-      width: 180px;
-      height: 180px;
+      width: 190px;
+      height: 190px;
       border-radius: 50%;
       background: #fff;
       color: #111;
-      display: grid;
-      place-items: center;
-      font-weight: 800;
-      text-align: center;
-      font-size: 0.98rem;
       box-shadow: 0 16px 50px rgba(0,0,0,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       transform: rotate(-12deg);
     }
 
-    .hero-stamp span {
-      display: block;
-      max-width: 120px;
-      line-height: 1.25;
+    .hero-stamp svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .stamp-text {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      fill: #111;
+    }
+
+    .stamp-center-icon {
+      fill: #111;
     }
 
     .about-style {
@@ -520,35 +534,6 @@
     .gallery-copy p {
       color: var(--muted);
       font-size: 0.98rem;
-    }
-
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 1.25rem;
-      margin-top: 2rem;
-    }
-
-    .review-card {
-      background: #fff;
-      padding: 1.5rem;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-    }
-
-    .stars {
-      color: var(--primary);
-      margin-bottom: 0.9rem;
-      letter-spacing: 0.18em;
-    }
-
-    .review-card p {
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
-
-    .reviewer {
-      font-weight: 800;
     }
 
     .faq-hero {
@@ -794,10 +779,10 @@
       font-weight: 700;
     }
 
-    .footer-brand {
-      font-size: 2rem;
-      font-weight: 900;
-      letter-spacing: -0.04em;
+    .footer-brand img {
+      height: 58px;
+      width: auto;
+      object-fit: contain;
     }
 
     .whatsapp-float {
@@ -828,7 +813,6 @@
       .contact-layout,
       .services-grid,
       .gallery-grid,
-      .reviews-grid,
       .metrics-grid {
         grid-template-columns: 1fr;
       }
@@ -886,13 +870,19 @@
       }
 
       .hero-photo {
+        max-width: 100%;
         min-height: 380px;
+        background-position: center top;
+        background-size: contain;
       }
 
       .hero-stamp {
-        width: 130px;
-        height: 130px;
-        font-size: 0.78rem;
+        width: 145px;
+        height: 145px;
+      }
+
+      .stamp-text {
+        font-size: 9px;
       }
 
       .form-submit {
@@ -906,13 +896,20 @@
       .cta-row {
         align-items: flex-start;
       }
+
+      .brand img,
+      .footer-brand img {
+        height: 48px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
-      <a href="#home" class="brand" aria-label="Carlos Construction Agency home">CARLOS</a>
+      <a href="#home" class="brand" aria-label="Carlos Construction Agency home">
+        <img src="assets/img/LogoCarosAgency.png" alt="Carlos Construction Agency logo">
+      </a>
 
       <nav class="nav-links">
         <a href="#home" class="active" data-i18n="navHome">Home</a>
@@ -953,8 +950,26 @@
 
         <div class="hero-panel">
           <div class="hero-photo" aria-label="Construction manager portrait"></div>
-          <div class="hero-stamp">
-            <span data-i18n="heroSeal">Trusted Experts</span>
+
+          <div class="hero-stamp" aria-label="Trusted Experts seal">
+            <svg viewBox="0 0 200 200" role="img" aria-hidden="true">
+              <defs>
+                <path id="circlePath" d="M 100,100 m -70,0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0"></path>
+              </defs>
+
+              <text class="stamp-text">
+                <textPath href="#circlePath" startOffset="0%">
+                  Trusted Experts - Trusted Experts -
+                </textPath>
+              </text>
+
+              <g class="stamp-center-icon" transform="translate(100 100)">
+                <path d="M-20 8 h40 v8 h-40z"></path>
+                <path d="M-24 0 c0-14 11-25 24-25 c13 0 24 11 24 25 h-8 c0-9-7-16-16-16 s-16 7-16 16z"></path>
+                <path d="M-7 -30 h14 v10 h-14z"></path>
+                <path d="M-30 24 h60 v6 c0 8-7 14-15 14 h-30 c-8 0-15-6-15-14z"></path>
+              </g>
+            </svg>
           </div>
         </div>
       </div>
@@ -1261,7 +1276,9 @@
         <a href="#services" data-i18n="footerBrowse">Browse</a>
         <a href="#services" data-i18n="footerServices">Services</a>
       </nav>
-      <div class="footer-brand">CARLOS</div>
+      <div class="footer-brand">
+        <img src="assets/img/LogoCarosAgency.png" alt="Carlos Construction Agency logo">
+      </div>
     </div>
   </footer>
 
@@ -1283,7 +1300,6 @@
         heroCtaSecondary: 'Contact',
         statOne: 'Years of combined hands-on experience',
         statTwo: 'Focused on detail, finish, and client satisfaction',
-        heroSeal: 'Trusted Experts',
         aboutEyebrow: 'Building Excellence',
         aboutTitle: 'Why homeowners choose Carlos Construction Agency',
         aboutText: 'We combine professionalism, practical solutions, and visually strong finishes that help your home feel renewed and valuable.',
@@ -1369,7 +1385,6 @@
         heroCtaSecondary: 'Contacto',
         statOne: 'Años de experiencia práctica combinada',
         statTwo: 'Enfoque total en detalle, acabado y satisfacción del cliente',
-        heroSeal: 'Expertos confiables',
         aboutEyebrow: 'Excelencia en construcción',
         aboutTitle: 'Por qué los propietarios eligen a Carlos Construction Agency',
         aboutText: 'Combinamos profesionalismo, soluciones prácticas y acabados visualmente sólidos que renuevan y valorizan tu hogar.',
