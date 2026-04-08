@@ -7,23 +7,19 @@
   <meta name="description" content="Professional home remodeling and repair services." />
   <style>
     :root {
-      --primary: #f59f00;
-      --primary-dark: #d78600;
-      --primary-soft: #fff4da;
-      --dark: #1f232b;
-      --dark-2: #2b3140;
-      --gray: #6c727f;
-      --gray-soft: #eef1f5;
-      --light: #f7f7f8;
-      --white: #ffffff;
-      --success: #25D366;
-      --shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
-      --shadow-soft: 0 20px 60px rgba(15, 23, 42, 0.08);
-      --shadow-strong: 0 28px 75px rgba(15, 23, 42, 0.16);
-      --radius: 24px;
-      --radius-lg: 32px;
-      --max-width: 1200px;
-      --transition: 0.3s ease;
+      --primary: #f5aa32;
+      --primary-dark: #df9319;
+      --dark: #1f1f22;
+      --dark-2: #2b2b30;
+      --text: #111111;
+      --muted: #6f6f74;
+      --bg: #f3f1ec;
+      --card: #ffffff;
+      --line: rgba(0,0,0,0.08);
+      --radius: 22px;
+      --shadow: 0 18px 48px rgba(0,0,0,0.08);
+      --max-width: 1180px;
+      --transition: 0.28s ease;
     }
 
     * {
@@ -38,12 +34,9 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top right, rgba(245, 159, 0, 0.08), transparent 22%),
-        linear-gradient(to bottom, #ffffff, #fcfcfd 38%, #f8f9fb 100%);
-      color: var(--dark);
-      line-height: 1.6;
-      overflow-x: hidden;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
     }
 
     a {
@@ -52,8 +45,8 @@
     }
 
     img {
-      max-width: 100%;
       display: block;
+      max-width: 100%;
     }
 
     button,
@@ -72,39 +65,32 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.55rem;
       border: none;
-      border-radius: 999px;
-      padding: 1rem 1.4rem;
-      font-weight: 800;
-      letter-spacing: 0.01em;
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      font-weight: 700;
       cursor: pointer;
       transition: var(--transition);
-      white-space: nowrap;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--primary), #ffb11a);
-      color: var(--white);
-      box-shadow: 0 18px 34px rgba(245, 159, 0, 0.28);
+      background: var(--primary);
+      color: #111;
     }
 
     .btn-primary:hover {
-      background: linear-gradient(135deg, var(--primary-dark), #f59f00);
+      background: var(--primary-dark);
       transform: translateY(-2px);
-      box-shadow: 0 22px 38px rgba(245, 159, 0, 0.35);
     }
 
     .btn-outline {
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--white);
-      border: 1.5px solid rgba(255, 255, 255, 0.36);
-      backdrop-filter: blur(10px);
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.5);
     }
 
     .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.16);
-      transform: translateY(-2px);
+      background: rgba(255,255,255,0.08);
     }
 
     .section {
@@ -112,195 +98,141 @@
       position: relative;
     }
 
+    .eyebrow {
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #2c2c2f;
+      margin-bottom: 0.9rem;
+    }
+
     .section-title {
-      font-size: clamp(2rem, 3vw, 3.35rem);
-      line-height: 1.05;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.02;
       margin-bottom: 1rem;
       letter-spacing: -0.03em;
     }
 
     .section-subtitle {
-      color: var(--gray);
-      max-width: 720px;
-      margin-bottom: 2.3rem;
+      color: var(--muted);
+      max-width: 760px;
       font-size: 1.02rem;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      padding: 0.52rem 0.95rem;
-      border-radius: 999px;
-      background: var(--primary-soft);
-      color: var(--primary-dark);
-      font-size: 0.86rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      border: 1px solid rgba(245, 159, 0, 0.16);
     }
 
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.84);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(31, 35, 43, 0.06);
-      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.03);
+      background: rgba(31,31,34,0.96);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
     .nav {
+      min-height: 82px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      min-height: 84px;
     }
 
     .brand {
-      display: flex;
-      flex-direction: column;
       font-weight: 900;
-      letter-spacing: 0.03em;
-      line-height: 0.92;
-      position: relative;
-    }
-
-    .brand-top {
-      color: var(--primary);
-      font-size: 1.75rem;
-      font-weight: 900;
-      letter-spacing: 0.09em;
-    }
-
-    .brand-bottom {
-      color: #8a8f98;
-      font-size: 1.08rem;
-      font-weight: 700;
+      font-size: 2rem;
+      letter-spacing: -0.04em;
+      color: #fff;
+      line-height: 1;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 1.4rem;
       flex-wrap: wrap;
-      justify-content: flex-end;
     }
 
     .nav-links a {
-      color: var(--dark);
-      font-weight: 800;
+      color: rgba(255,255,255,0.92);
       font-size: 0.95rem;
-      padding: 0.45rem 0.2rem;
       position: relative;
     }
 
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 0;
-      height: 2px;
-      background: var(--primary);
-      transition: var(--transition);
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
+    .nav-links a.active,
+    .nav-links a:hover {
+      color: var(--primary);
     }
 
     .lang-toggle {
-      background: var(--dark);
-      color: var(--white);
-      padding: 0.82rem 1rem;
-      border-radius: 999px;
+      background: var(--primary);
+      color: #111;
+      padding: 0.9rem 1rem;
+      border-radius: 8px;
       border: none;
-      font-weight: 800;
+      font-weight: 700;
       cursor: pointer;
       transition: var(--transition);
-      box-shadow: 0 14px 28px rgba(31, 35, 43, 0.16);
     }
 
     .lang-toggle:hover {
-      transform: translateY(-2px);
-      background: #12161d;
+      background: var(--primary-dark);
     }
 
     .hero {
       position: relative;
-      min-height: 88vh;
-      display: grid;
+      min-height: 92vh;
+      display: flex;
       align-items: center;
-      background:
-        linear-gradient(105deg, rgba(10, 12, 18, 0.9) 0%, rgba(16, 18, 24, 0.82) 40%, rgba(16, 18, 24, 0.5) 70%, rgba(16, 18, 24, 0.2) 100%),
-        url('assets/hero-construction.png') center/cover no-repeat;
-      color: var(--white);
       overflow: hidden;
-      isolation: isolate;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
+      color: #fff;
       background:
-        radial-gradient(circle at 18% 25%, rgba(245, 159, 0, 0.24), transparent 20%),
-        radial-gradient(circle at 85% 78%, rgba(255, 255, 255, 0.08), transparent 16%);
-      z-index: 0;
+        linear-gradient(90deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.44) 100%),
+        url('assets/hero-construction.png') center/cover no-repeat;
     }
 
     .hero::after {
       content: "";
       position: absolute;
-      inset: auto -12% -16% auto;
-      width: 420px;
-      height: 420px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(245, 159, 0, 0.28), rgba(245, 159, 0, 0));
-      pointer-events: none;
-      z-index: 0;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 130px;
+      background: var(--bg);
+      clip-path: polygon(0 62%, 100% 22%, 100% 100%, 0 100%);
     }
 
     .hero-grid {
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: minmax(0, 1.12fr) minmax(360px, 0.88fr);
-      gap: 2rem;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 2.4rem;
       align-items: center;
-      padding: 4rem 0;
+      padding: 4rem 0 8rem;
     }
 
     .hero-copy {
-      max-width: 760px;
+      max-width: 680px;
     }
 
     .hero-badge {
-      display: inline-flex;
-      padding: 0.58rem 0.95rem;
-      border-radius: 999px;
-      background: rgba(245, 159, 0, 0.16);
-      color: #ffd58a;
-      font-weight: 800;
+      display: inline-block;
       margin-bottom: 1.2rem;
-      border: 1px solid rgba(245, 159, 0, 0.42);
-      backdrop-filter: blur(10px);
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.86);
     }
 
     .hero h1 {
-      font-size: clamp(2.85rem, 6vw, 5.7rem);
+      font-size: clamp(2.8rem, 6vw, 5.2rem);
       line-height: 0.95;
-      margin-bottom: 1.1rem;
-      max-width: 760px;
-      letter-spacing: -0.04em;
+      letter-spacing: -0.05em;
+      margin-bottom: 1.2rem;
     }
 
     .hero p {
-      font-size: 1.12rem;
-      color: rgba(255, 255, 255, 0.88);
-      max-width: 650px;
+      max-width: 620px;
+      color: rgba(255,255,255,0.82);
+      font-size: 1.15rem;
       margin-bottom: 1.8rem;
     }
 
@@ -311,476 +243,307 @@
       margin-bottom: 2rem;
     }
 
-    .hero-cards {
+    .hero-stats {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0,1fr));
       gap: 1rem;
-      margin-top: 2.2rem;
-      max-width: 620px;
+      max-width: 520px;
     }
 
-    .mini-card,
-    .contact-card,
-    .service-card,
-    .review-card,
-    .gallery-card,
-    .feature-item,
-    .about-panel,
-    .form-card,
-    .trust-strip,
-    .cta {
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-soft);
+    .stat-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 1rem 1.1rem;
+      border-radius: 16px;
+      backdrop-filter: blur(8px);
     }
 
-    .mini-card {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      padding: 1.15rem;
-      backdrop-filter: blur(12px);
-      transition: var(--transition);
-    }
-
-    .mini-card:hover {
-      transform: translateY(-4px);
-      background: rgba(255, 255, 255, 0.14);
-    }
-
-    .mini-card strong {
+    .stat-card strong {
       display: block;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       margin-bottom: 0.25rem;
+      color: var(--primary);
     }
 
-    .mini-card span {
-      color: rgba(255, 255, 255, 0.82);
+    .stat-card span {
+      color: rgba(255,255,255,0.86);
       font-size: 0.95rem;
     }
 
-    .contact-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.08));
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      padding: 1.55rem;
-      backdrop-filter: blur(16px);
+    .hero-panel {
       position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow-strong);
+      display: grid;
+      align-items: center;
+      justify-items: end;
     }
 
-    .contact-card::before {
-      content: "";
+    .hero-photo {
+      width: 100%;
+      max-width: 610px;
+      min-height: 640px;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.24);
+      background:
+        linear-gradient(rgba(0,0,0,0.12), rgba(0,0,0,0.12)),
+        url('assets/hero-portrait.jpg') center/cover no-repeat;
+    }
+
+    .hero-stamp {
       position: absolute;
-      inset: 0 0 auto auto;
+      left: -20px;
+      bottom: 55px;
       width: 180px;
       height: 180px;
-      background: radial-gradient(circle, rgba(245,159,0,0.22), rgba(245,159,0,0));
-      pointer-events: none;
-    }
-
-    .contact-top {
-      position: relative;
-      z-index: 1;
-      margin-bottom: 1rem;
-    }
-
-    .contact-card h3 {
-      font-size: 1.35rem;
-      margin-bottom: 0.45rem;
-    }
-
-    .contact-intro {
-      color: rgba(255,255,255,0.78);
-      font-size: 0.96rem;
-    }
-
-    .contact-list {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      gap: 0.65rem;
-      margin-bottom: 1rem;
-    }
-
-    .contact-item {
-      padding: 0.95rem 1rem;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 18px;
-      background: rgba(255,255,255,0.08);
-    }
-
-    .contact-label {
-      color: #ffd58a;
-      font-size: 0.82rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .contact-value {
-      display: block;
-      font-size: 1.05rem;
-      font-weight: 800;
-      margin-top: 0.2rem;
-      color: var(--white);
-    }
-
-    .contact-value:hover {
-      color: #ffe7b2;
-    }
-
-    .contact-form-wrap {
-      position: relative;
-      z-index: 1;
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(255,255,255,0.14);
-    }
-
-    .form-title {
-      font-size: 1.05rem;
-      margin-bottom: 0.3rem;
-      font-weight: 800;
-    }
-
-    .form-subtitle {
-      color: rgba(255,255,255,0.75);
-      font-size: 0.92rem;
-      margin-bottom: 1rem;
-    }
-
-    .contact-form {
-      display: grid;
-      gap: 0.78rem;
-    }
-
-    .contact-form input,
-    .contact-form select,
-    .contact-form textarea {
-      width: 100%;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 16px;
-      padding: 0.92rem 1rem;
-      outline: none;
-      background: rgba(255,255,255,0.92);
-      color: var(--dark);
-      transition: var(--transition);
-    }
-
-    .contact-form textarea {
-      resize: vertical;
-      min-height: 110px;
-    }
-
-    .contact-form input:focus,
-    .contact-form select:focus,
-    .contact-form textarea:focus {
-      border-color: rgba(245, 159, 0, 0.7);
-      box-shadow: 0 0 0 4px rgba(245, 159, 0, 0.12);
+      border-radius: 50%;
       background: #fff;
-    }
-
-    .form-grid {
+      color: #111;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.78rem;
+      place-items: center;
+      font-weight: 800;
+      text-align: center;
+      font-size: 0.98rem;
+      box-shadow: 0 16px 50px rgba(0,0,0,0.18);
+      transform: rotate(-12deg);
     }
 
-    .form-note {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.72);
-      line-height: 1.45;
+    .hero-stamp span {
+      display: block;
+      max-width: 120px;
+      line-height: 1.25;
     }
 
-    .section-top {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 0.5rem;
+    .about-style {
+      padding-top: 2rem;
     }
 
-    .trust-strip {
-      background: linear-gradient(180deg, #fffdf8, #ffffff);
-      padding: 1.15rem 1.25rem;
-      border: 1px solid rgba(0, 0, 0, 0.05);
+    .about-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: -2rem;
-      position: relative;
-      z-index: 5;
-    }
-
-    .trust-item {
-      display: flex;
-      gap: 0.85rem;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 3rem;
       align-items: center;
     }
 
-    .trust-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 16px;
+    .about-media {
       display: grid;
-      place-items: center;
-      background: var(--primary-soft);
-      color: var(--primary-dark);
-      font-size: 1.2rem;
-      font-weight: 900;
-      flex: 0 0 48px;
+      grid-template-columns: 180px 1fr;
+      grid-template-rows: 190px 190px;
+      gap: 1.2rem;
     }
 
-    .trust-item strong {
+    .about-box,
+    .about-image,
+    .service-card,
+    .gallery-card,
+    .review-card,
+    .contact-card,
+    .faq-item {
+      border-radius: var(--radius);
+    }
+
+    .about-box {
+      background: var(--primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #111;
+      box-shadow: var(--shadow);
+      padding: 1rem;
+    }
+
+    .about-box strong {
+      font-size: 3.1rem;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .about-box span {
+      font-size: 0.95rem;
+      text-align: center;
+      max-width: 120px;
+      font-weight: 700;
+    }
+
+    .about-image {
+      overflow: hidden;
+      min-height: 190px;
+      background-size: cover;
+      background-position: center;
+      box-shadow: var(--shadow);
+    }
+
+    .img-wide {
+      grid-column: 2 / 3;
+      grid-row: 1 / 3;
+      min-height: 392px;
+      background-image: url('assets/about-team.jpg');
+    }
+
+    .img-small {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+      background-image: url('assets/about-site.jpg');
+    }
+
+    .about-copy .btn {
+      margin-top: 1.4rem;
+    }
+
+    .metrics-band {
+      margin-top: 4rem;
+      background:
+        linear-gradient(rgba(245,170,50,0.92), rgba(245,170,50,0.92)),
+        url('assets/metrics-bg.jpg') center/cover no-repeat;
+      padding: 2rem 0;
+      clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 1.5rem;
+      padding-top: 1rem;
+    }
+
+    .metric {
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+      color: #111;
+      font-weight: 700;
+    }
+
+    .metric-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .metric strong {
       display: block;
-      margin-bottom: 0.12rem;
-      font-size: 0.98rem;
+      font-size: 2rem;
+      line-height: 1;
     }
 
-    .trust-item span {
-      color: var(--gray);
-      font-size: 0.9rem;
+    .metric span {
+      display: block;
+      font-size: 0.95rem;
+    }
+
+    .services-section {
+      padding-top: 6rem;
     }
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0,1fr));
       gap: 1.25rem;
       margin-top: 2rem;
     }
 
     .service-card {
-      background: linear-gradient(180deg, #ffffff, #fbfcfe);
+      background: #fff;
+      border: 1px solid var(--line);
       padding: 1.5rem;
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .service-card::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), transparent);
-      opacity: 0;
+      box-shadow: var(--shadow);
       transition: var(--transition);
     }
 
     .service-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 26px 60px rgba(0,0,0,0.12);
-      border-color: rgba(245, 159, 0, 0.16);
-    }
-
-    .service-card:hover::after {
-      opacity: 1;
     }
 
     .service-icon {
       width: 56px;
       height: 56px;
-      border-radius: 18px;
-      background: rgba(245, 159, 0, 0.12);
+      border-radius: 14px;
+      background: rgba(245,170,50,0.18);
       display: grid;
       place-items: center;
-      font-size: 1.55rem;
+      font-size: 1.5rem;
       margin-bottom: 1rem;
-      box-shadow: inset 0 0 0 1px rgba(245, 159, 0, 0.08);
     }
 
     .service-card h3 {
-      margin-bottom: 0.65rem;
-      font-size: 1.14rem;
+      font-size: 1.18rem;
+      margin-bottom: 0.6rem;
       line-height: 1.25;
     }
 
     .service-card p {
-      color: var(--gray);
-      font-size: 0.97rem;
+      color: var(--muted);
     }
 
-    .highlight {
-      background:
-        radial-gradient(circle at left top, rgba(245,159,0,0.08), transparent 20%),
-        linear-gradient(180deg, #fff8ea 0%, #ffffff 100%);
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .features-list {
-      display: grid;
-      gap: 0.95rem;
-    }
-
-    .feature-item {
+    .gallery-intro {
       display: flex;
-      gap: 0.95rem;
-      align-items: flex-start;
-      padding: 1rem;
-      background: var(--white);
-      border: 1px solid rgba(0,0,0,0.05);
-      transition: var(--transition);
-    }
-
-    .feature-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 36px rgba(0,0,0,0.08);
-    }
-
-    .feature-bullet {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: rgba(245, 159, 0, 0.14);
-      color: var(--primary-dark);
-      display: grid;
-      place-items: center;
-      font-weight: 900;
-      flex: 0 0 36px;
-      margin-top: 0.1rem;
-    }
-
-    .feature-item p {
-      color: var(--gray);
-      margin-top: 0.25rem;
-    }
-
-    .about-panel {
-      background:
-        linear-gradient(145deg, #1f232b, #2f3542);
-      color: var(--white);
-      padding: 2.2rem;
-      border-radius: 30px;
-      box-shadow: var(--shadow-strong);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .about-panel::before {
-      content: "";
-      position: absolute;
-      inset: auto auto -60px -60px;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(245,159,0,0.22), rgba(245,159,0,0));
-    }
-
-    .about-panel p {
-      color: rgba(255,255,255,0.82);
-      margin-top: 1rem;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
     }
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.25rem;
-      margin-top: 2rem;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 1.35rem;
     }
 
     .gallery-card {
       overflow: hidden;
-      background: #fff;
-      border: 1px solid rgba(0,0,0,0.06);
+      background: transparent;
+    }
+
+    .gallery-photo {
+      aspect-ratio: 1.1 / 0.9;
+      background-size: cover;
+      background-position: center;
+      border-radius: 0;
       transition: var(--transition);
     }
 
-    .gallery-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 28px 62px rgba(0,0,0,0.13);
-    }
-
-    .before-after {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 280px;
-      overflow: hidden;
-    }
-
-    .before,
-    .after {
-      position: relative;
-      padding: 1rem;
-      display: flex;
-      align-items: flex-end;
-      font-weight: 800;
-      color: var(--white);
-      background-size: cover;
-      background-position: center;
-      transition: 0.45s ease;
-    }
-
-    .gallery-card:hover .before,
-    .gallery-card:hover .after {
-      transform: scale(1.06);
-    }
-
-    .before::before,
-    .after::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.15));
-    }
-
-    .before span,
-    .after span {
-      position: relative;
-      z-index: 1;
-      background: rgba(0,0,0,0.35);
-      padding: 0.38rem 0.76rem;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      backdrop-filter: blur(8px);
+    .gallery-card:hover .gallery-photo {
+      transform: scale(1.03);
     }
 
     .gallery-copy {
-      padding: 1.2rem 1.15rem 1.35rem;
+      background: transparent;
+      padding: 1.2rem 0 0;
+    }
+
+    .gallery-copy h3 {
+      font-size: 1.1rem;
+      line-height: 1.25;
+      margin-bottom: 0.7rem;
     }
 
     .gallery-copy p {
-      color: var(--gray);
-      margin-top: 0.45rem;
+      color: var(--muted);
+      font-size: 0.98rem;
     }
 
     .reviews-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0,1fr));
       gap: 1.25rem;
       margin-top: 2rem;
     }
 
     .review-card {
-      background: linear-gradient(180deg, #ffffff, #fcfcfe);
-      padding: 1.55rem;
-      border: 1px solid rgba(0,0,0,0.06);
-      transition: var(--transition);
-      position: relative;
-    }
-
-    .review-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 24px 52px rgba(0,0,0,0.11);
+      background: #fff;
+      padding: 1.5rem;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
     }
 
     .stars {
       color: var(--primary);
-      letter-spacing: 0.18em;
-      font-size: 1rem;
       margin-bottom: 0.9rem;
+      letter-spacing: 0.18em;
     }
 
     .review-card p {
-      color: var(--gray);
+      color: var(--muted);
       margin-bottom: 1rem;
     }
 
@@ -788,126 +551,312 @@
       font-weight: 800;
     }
 
-    .cta {
-      background: linear-gradient(135deg, #1b1f27, #2f3644);
-      color: var(--white);
-      border-radius: 34px;
-      padding: 2.6rem;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 1rem;
-      align-items: center;
-      box-shadow: var(--shadow-strong);
+    .faq-hero {
       position: relative;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      background:
+        linear-gradient(rgba(0,0,0,0.42), rgba(0,0,0,0.42)),
+        url('assets/faq-banner.jpg') center/cover no-repeat;
       overflow: hidden;
     }
 
-    .cta::before {
+    .faq-hero::after {
       content: "";
       position: absolute;
-      inset: auto -80px -80px auto;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(245,159,0,0.28), rgba(245,159,0,0));
-      pointer-events: none;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 110px;
+      background: var(--bg);
+      clip-path: polygon(0 58%, 100% 20%, 100% 100%, 0 100%);
     }
 
-    .cta h2 {
-      font-size: clamp(1.9rem, 3vw, 2.6rem);
+    .faq-hero-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      width: 100%;
+      padding: 3rem 0 6rem;
+    }
+
+    .faq-hero h2 {
+      font-size: clamp(2.6rem, 7vw, 4.8rem);
+      letter-spacing: -0.04em;
+      margin-bottom: 0.6rem;
+    }
+
+    .breadcrumb {
+      color: rgba(255,255,255,0.88);
+      font-size: 1rem;
+    }
+
+    .faq-section {
+      padding-top: 2rem;
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .faq-list {
+      max-width: 860px;
+      margin: 0 auto;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .faq-item {
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.08);
+      background: #fff;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: var(--primary);
+      color: #111;
+      border: none;
+      padding: 1.2rem 1.4rem;
+      font-size: 1.08rem;
+      font-weight: 800;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 1.2rem 1.4rem 1.35rem;
+      color: var(--muted);
+      background: #fff;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    .contact-section {
+      padding-top: 5rem;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .contact-card {
+      background: #ececeb;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card-top {
+      background: var(--dark);
+      color: #fff;
+      padding: 1.2rem;
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .contact-card-body {
+      padding: 1.4rem 1.2rem 1.6rem;
+    }
+
+    .contact-block + .contact-block {
+      margin-top: 1.2rem;
+    }
+
+    .contact-block strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-block span,
+    .contact-block a {
+      color: var(--muted);
+      display: block;
+    }
+
+    .contact-form-panel h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1.6rem;
+      letter-spacing: -0.03em;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      background: transparent;
+      border: 1.2px solid rgba(0,0,0,0.28);
+      padding: 0.95rem 1rem;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .field textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(245,170,50,0.12);
+      background: rgba(255,255,255,0.4);
+    }
+
+    .form-submit {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 0.5rem;
+    }
+
+    .cta-band {
+      margin-top: 6rem;
+      background: var(--dark);
+      color: #fff;
+      padding: 2.4rem 0;
+    }
+
+    .cta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .cta-row h3 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
       line-height: 1.05;
-      position: relative;
-      z-index: 1;
+      letter-spacing: -0.03em;
     }
 
-    .cta p {
-      color: rgba(255,255,255,0.82);
-      margin-top: 0.55rem;
-      position: relative;
-      z-index: 1;
-      max-width: 680px;
+    .cta-row p {
+      color: rgba(255,255,255,0.78);
+      max-width: 700px;
+      margin-top: 0.45rem;
     }
 
     footer {
-      padding: 2.4rem 0 3rem;
-      color: var(--gray);
-      text-align: center;
+      background: var(--dark);
+      color: #fff;
+      padding: 2rem 0 2.4rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav a {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .footer-brand {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
     }
 
     .whatsapp-float {
       position: fixed;
       right: 18px;
       bottom: 18px;
-      width: 64px;
-      height: 64px;
+      width: 62px;
+      height: 62px;
       border-radius: 50%;
       display: grid;
       place-items: center;
-      background: var(--success);
+      background: #25D366;
       color: white;
       box-shadow: 0 18px 40px rgba(37, 211, 102, 0.35);
       z-index: 1100;
-      font-size: 1.8rem;
+      font-size: 1.7rem;
       font-weight: 900;
       transition: var(--transition);
     }
 
     .whatsapp-float:hover {
-      transform: translateY(-2px) scale(1.04);
+      transform: translateY(-2px) scale(1.03);
     }
 
-    .fade-up {
-      animation: fadeUp 0.7s ease both;
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(16px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 1120px) {
+    @media (max-width: 1080px) {
       .hero-grid,
-      .two-col,
+      .about-grid,
+      .contact-layout,
       .services-grid,
       .gallery-grid,
       .reviews-grid,
-      .cta,
-      .trust-strip {
+      .metrics-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero {
-        min-height: auto;
+      .hero-panel {
+        justify-items: start;
       }
 
-      .hero-grid {
-        padding: 4.8rem 0 4rem;
+      .hero-photo {
+        min-height: 500px;
       }
 
-      .contact-card {
-        max-width: 720px;
+      .hero-stamp {
+        left: auto;
+        right: 20px;
+        bottom: 20px;
       }
 
-      .trust-strip {
-        margin-top: 1.5rem;
+      .about-media {
+        grid-template-columns: 180px 1fr;
       }
     }
 
-    @media (max-width: 820px) {
-      .section {
-        padding: 4.5rem 0;
-      }
-
+    @media (max-width: 760px) {
       .nav {
         align-items: flex-start;
-        padding: 1rem 0;
         flex-direction: column;
+        padding: 1rem 0;
       }
 
       .nav-links {
@@ -915,64 +864,47 @@
         justify-content: flex-start;
       }
 
-      .hero-actions,
-      .hero-cards,
-      .before-after,
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: clamp(2.35rem, 10vw, 4rem);
-      }
-
-      .cta {
-        border-radius: 24px;
-        padding: 2rem;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .container {
-        width: min(calc(100% - 1.15rem), var(--max-width));
+      .hero {
+        min-height: auto;
       }
 
       .hero-grid {
-        gap: 1.4rem;
-        padding: 4rem 0 3rem;
+        padding: 3rem 0 6rem;
       }
 
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .hero-cards,
-      .before-after {
-        display: grid;
+      .hero-stats,
+      .form-grid,
+      .about-media {
         grid-template-columns: 1fr;
       }
 
-      .contact-card,
-      .service-card,
-      .review-card,
-      .gallery-card,
-      .feature-item,
-      .about-panel {
-        border-radius: 20px;
+      .img-wide,
+      .img-small {
+        grid-column: auto;
+        grid-row: auto;
+        min-height: 220px;
       }
 
-      .section-title {
-        font-size: 1.9rem;
+      .hero-photo {
+        min-height: 380px;
       }
 
-      .whatsapp-float {
-        width: 58px;
-        height: 58px;
+      .hero-stamp {
+        width: 130px;
+        height: 130px;
+        font-size: 0.78rem;
+      }
+
+      .form-submit {
+        justify-content: stretch;
+      }
+
+      .form-submit .btn {
+        width: 100%;
+      }
+
+      .cta-row {
+        align-items: flex-start;
       }
     }
   </style>
@@ -980,16 +912,15 @@
 <body>
   <header>
     <div class="container nav">
-      <a href="#home" class="brand" aria-label="Carlos Construction Agency home">
-        <span class="brand-top">CARLOS</span>
-        <span class="brand-bottom">CONSTRUCTION AGENCY</span>
-      </a>
+      <a href="#home" class="brand" aria-label="Carlos Construction Agency home">CARLOS</a>
 
       <nav class="nav-links">
+        <a href="#home" class="active" data-i18n="navHome">Home</a>
+        <a href="#about" data-i18n="navAbout">About Us</a>
         <a href="#services" data-i18n="navServices">Services</a>
-        <a href="#gallery" data-i18n="navGallery">Our Work</a>
-        <a href="#reviews" data-i18n="navReviews">Reviews</a>
-        <a href="#contact" data-i18n="navContact">Contact</a>
+        <a href="#gallery" data-i18n="navBlog">Blog</a>
+        <a href="#faq" data-i18n="navFaq">FAQ</a>
+        <a href="#contact" class="btn btn-primary" data-i18n="navContactButton">Contact</a>
         <button class="lang-toggle" id="languageToggle" type="button">ES</button>
       </nav>
     </div>
@@ -998,126 +929,99 @@
   <main>
     <section class="hero" id="home">
       <div class="container hero-grid">
-        <div class="hero-copy fade-up">
-          <span class="hero-badge" data-i18n="heroBadge">Professional Home Remodeling & Repairs</span>
+        <div class="hero-copy">
+          <div class="hero-badge" data-i18n="heroBadge">Building Excellence</div>
           <h1 data-i18n="heroTitle">Reliable remodeling solutions for kitchens, bathrooms, roofs, basements, and more.</h1>
           <p data-i18n="heroText">Carlos Construction Agency delivers quality craftsmanship, clean finishes, and dependable service for homeowners who want beautiful and durable results.</p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact" data-i18n="heroCtaPrimary">Request a Free Estimate</a>
-            <a class="btn btn-outline" href="#gallery" data-i18n="heroCtaSecondary">See Our Work</a>
+            <a class="btn btn-primary" href="#services" data-i18n="heroCtaPrimary">Services</a>
+            <a class="btn btn-outline" href="#contact" data-i18n="heroCtaSecondary">Contact</a>
           </div>
 
-          <div class="hero-cards">
-            <div class="mini-card">
+          <div class="hero-stats">
+            <div class="stat-card">
               <strong>10+</strong>
               <span data-i18n="statOne">Years of combined hands-on experience</span>
             </div>
-            <div class="mini-card">
+            <div class="stat-card">
               <strong>100%</strong>
               <span data-i18n="statTwo">Focused on detail, finish, and client satisfaction</span>
             </div>
           </div>
         </div>
 
-        <aside class="contact-card fade-up" id="contact">
-          <div class="contact-top">
-            <h3 data-i18n="contactTitle">Talk to our team today</h3>
-            <p class="contact-intro" data-i18n="contactIntro">Reach out directly or request a technical visit so we can evaluate the repair or remodeling service you need.</p>
-          </div>
-
-          <div class="contact-list">
-            <div class="contact-item">
-              <span class="contact-label">WhatsApp Español</span>
-              <a class="contact-value" href="https://wa.me/17322937117" target="_blank" rel="noreferrer">+1 (732) 293-7117</a>
-            </div>
-
-            <div class="contact-item">
-              <span class="contact-label">WhatsApp English</span>
-              <a class="contact-value" href="https://wa.me/17322778283" target="_blank" rel="noreferrer">+1 (732) 277-8283</a>
-            </div>
-
-            <div class="contact-item">
-              <span class="contact-label" data-i18n="coverageLabel">Service coverage</span>
-              <span class="contact-value" data-i18n="coverageValue">Home remodeling, repairs, interior and exterior improvements</span>
-            </div>
-          </div>
-
-          <div class="contact-form-wrap">
-            <div class="form-title" data-i18n="visitTitle">Request a technical visit</div>
-            <p class="form-subtitle" data-i18n="visitSubtitle">Fill out the form and we’ll prepare your visit request message.</p>
-
-            <form class="contact-form" id="visitForm">
-              <div class="form-grid">
-                <input type="text" id="fullName" required placeholder="Full Name" data-placeholder-en="Full Name" data-placeholder-es="Nombre completo" />
-                <input type="tel" id="phoneNumber" required placeholder="Phone Number" data-placeholder-en="Phone Number" data-placeholder-es="Número de teléfono" />
-              </div>
-
-              <div class="form-grid">
-                <input type="email" id="emailAddress" placeholder="Email" data-placeholder-en="Email" data-placeholder-es="Correo electrónico" />
-                <select id="serviceType" required>
-                  <option value="" data-i18n="serviceSelectDefault">Type of service</option>
-                  <option value="Kitchen Remodeling" data-en="Kitchen Remodeling" data-es="Remodelación de cocina">Kitchen Remodeling</option>
-                  <option value="Bathroom Remodeling" data-en="Bathroom Remodeling" data-es="Remodelación de baño">Bathroom Remodeling</option>
-                  <option value="Roofing" data-en="Roofing" data-es="Techos">Roofing</option>
-                  <option value="Painting" data-en="Painting" data-es="Pintura">Painting</option>
-                  <option value="Basement Finishing" data-en="Basement Finishing" data-es="Terminación de sótano">Basement Finishing</option>
-                  <option value="Flooring / Tile / Drywall" data-en="Flooring / Tile / Drywall" data-es="Pisos / Tile / Drywall">Flooring / Tile / Drywall</option>
-                  <option value="Concrete / Sidewalks / Steps" data-en="Concrete / Sidewalks / Steps" data-es="Concreto / Aceras / Escalones">Concrete / Sidewalks / Steps</option>
-                  <option value="Doors / Windows" data-en="Doors / Windows" data-es="Puertas / Ventanas">Doors / Windows</option>
-                  <option value="Plumbing / Electrical" data-en="Plumbing / Electrical" data-es="Plomería / Electricidad">Plumbing / Electrical</option>
-                  <option value="Power Washing" data-en="Power Washing" data-es="Lavado a presión">Power Washing</option>
-                  <option value="Other" data-en="Other" data-es="Otro">Other</option>
-                </select>
-              </div>
-
-              <textarea id="projectDetails" rows="4" placeholder="Describe your project" data-placeholder-en="Describe your project" data-placeholder-es="Describe tu proyecto"></textarea>
-
-              <button class="btn btn-primary" type="submit" data-i18n="visitButton">Request Visit</button>
-
-              <p class="form-note" data-i18n="visitNote">
-                This form opens WhatsApp with your request already written so the team can review your information quickly.
-              </p>
-            </form>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="container">
-      <div class="trust-strip">
-        <div class="trust-item">
-          <div class="trust-icon">✓</div>
-          <div>
-            <strong data-i18n="trust1Title">Professional service</strong>
-            <span data-i18n="trust1Text">Clear communication and dependable project support.</span>
-          </div>
-        </div>
-        <div class="trust-item">
-          <div class="trust-icon">★</div>
-          <div>
-            <strong data-i18n="trust2Title">Quality finishes</strong>
-            <span data-i18n="trust2Text">Detail-oriented work for durable and polished results.</span>
-          </div>
-        </div>
-        <div class="trust-item">
-          <div class="trust-icon">⚒</div>
-          <div>
-            <strong data-i18n="trust3Title">Technical visit requests</strong>
-            <span data-i18n="trust3Text">A faster way to evaluate the repair or upgrade you need.</span>
+        <div class="hero-panel">
+          <div class="hero-photo" aria-label="Construction manager portrait"></div>
+          <div class="hero-stamp">
+            <span data-i18n="heroSeal">Trusted Experts</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="services">
+    <section class="section about-style" id="about">
       <div class="container">
-        <div class="section-top">
-          <div>
-            <span class="eyebrow" data-i18n="servicesEyebrow">Complete residential solutions</span>
-            <h2 class="section-title" data-i18n="servicesTitle">Full-service construction and remodeling</h2>
+        <div class="about-grid">
+          <div class="about-media">
+            <div class="about-box">
+              <strong>500+</strong>
+              <span data-i18n="aboutClients">Satisfied Clients</span>
+            </div>
+            <div class="about-image img-wide" aria-label="Construction meeting"></div>
+            <div class="about-image img-small" aria-label="Construction site"></div>
+          </div>
+
+          <div class="about-copy">
+            <div class="eyebrow" data-i18n="aboutEyebrow">Building Excellence</div>
+            <h2 class="section-title" data-i18n="aboutTitle">Why homeowners choose Carlos Construction Agency</h2>
+            <p class="section-subtitle" data-i18n="aboutText">We combine professionalism, practical solutions, and visually strong finishes that help your home feel renewed and valuable.</p>
+            <a href="#contact" class="btn btn-primary" data-i18n="aboutButton">Read More About Us</a>
           </div>
         </div>
+      </div>
+
+      <div class="metrics-band">
+        <div class="container metrics-grid">
+          <div class="metric">
+            <div class="metric-icon">🏢</div>
+            <div>
+              <strong>785+</strong>
+              <span data-i18n="metric1">Commercial Projects</span>
+            </div>
+          </div>
+
+          <div class="metric">
+            <div class="metric-icon">📐</div>
+            <div>
+              <strong>20M</strong>
+              <span data-i18n="metric2">Completed Projects</span>
+            </div>
+          </div>
+
+          <div class="metric">
+            <div class="metric-icon">🚧</div>
+            <div>
+              <strong>48+</strong>
+              <span data-i18n="metric3">Ongoing Projects</span>
+            </div>
+          </div>
+
+          <div class="metric">
+            <div class="metric-icon">👷</div>
+            <div>
+              <strong>36+</strong>
+              <span data-i18n="metric4">Years Experience</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services-section" id="services">
+      <div class="container">
+        <div class="eyebrow" data-i18n="servicesEyebrow">Our Services</div>
+        <h2 class="section-title" data-i18n="servicesTitle">Full-service construction and remodeling</h2>
         <p class="section-subtitle" data-i18n="servicesSubtitle">From small repairs to large upgrades, we provide skilled labor and professional project execution for the services shown in your flyer.</p>
 
         <div class="services-grid">
@@ -1178,59 +1082,19 @@
       </div>
     </section>
 
-    <section class="section highlight">
-      <div class="container two-col">
-        <div>
-          <span class="eyebrow" data-i18n="whyEyebrow">Why clients choose us</span>
-          <h2 class="section-title" data-i18n="whyTitle">Why homeowners choose Carlos Construction Agency</h2>
-          <p class="section-subtitle" data-i18n="whySubtitle">We combine professionalism, practical solutions, and visually strong finishes that help your home feel renewed and valuable.</p>
-
-          <div class="features-list">
-            <div class="feature-item">
-              <div class="feature-bullet">✓</div>
-              <div>
-                <strong data-i18n="feature1Title">Clean, trustworthy service</strong>
-                <p data-i18n="feature1Text">We aim to deliver organized projects, clear communication, and dependable timelines.</p>
-              </div>
-            </div>
-
-            <div class="feature-item">
-              <div class="feature-bullet">✓</div>
-              <div>
-                <strong data-i18n="feature2Title">Interior and exterior expertise</strong>
-                <p data-i18n="feature2Text">One company for remodeling, repairs, finishes, upgrades, and curb-appeal improvements.</p>
-              </div>
-            </div>
-
-            <div class="feature-item">
-              <div class="feature-bullet">✓</div>
-              <div>
-                <strong data-i18n="feature3Title">Mobile-ready contact options</strong>
-                <p data-i18n="feature3Text">Visitors can switch language and contact the correct WhatsApp number with one tap.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="about-panel">
-          <h3 data-i18n="aboutTitle">Professional home improvement presentation</h3>
-          <p data-i18n="aboutText">This website is designed to feel premium and modern, with bilingual navigation, responsive layouts, before-and-after showcase sections, and strong calls to action for new clients.</p>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="gallery">
       <div class="container">
-        <span class="eyebrow" data-i18n="galleryEyebrow">Before and after showcase</span>
-        <h2 class="section-title" data-i18n="galleryTitle">Rate our work</h2>
-        <p class="section-subtitle" data-i18n="gallerySubtitle">Use this area to show before-and-after photos of your projects. Replace these example images with your own job photos inside the assets folder.</p>
+        <div class="gallery-intro">
+          <div>
+            <div class="eyebrow" data-i18n="galleryEyebrow">Construction Tips</div>
+            <h2 class="section-title" data-i18n="galleryTitle">Rate our work</h2>
+          </div>
+          <p class="section-subtitle" data-i18n="gallerySubtitle">Use this area to show before-and-after photos of your projects. Replace these example images with your own job photos inside the assets folder.</p>
+        </div>
 
         <div class="gallery-grid">
           <article class="gallery-card">
-            <div class="before-after">
-              <div class="before" style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80')"><span data-i18n="beforeLabel">Before</span></div>
-              <div class="after" style="background-image:url('https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=80')"><span data-i18n="afterLabel">After</span></div>
-            </div>
+            <div class="gallery-photo" style="background-image:url('assets/project-1.jpg')"></div>
             <div class="gallery-copy">
               <h3 data-i18n="gallery1Title">Kitchen transformation</h3>
               <p data-i18n="gallery1Text">Cabinets, countertops, backsplash, lighting, and a cleaner modern layout.</p>
@@ -1238,10 +1102,7 @@
           </article>
 
           <article class="gallery-card">
-            <div class="before-after">
-              <div class="before" style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80')"><span data-i18n="beforeLabel">Before</span></div>
-              <div class="after" style="background-image:url('https://images.unsplash.com/photo-1505693527504-bf54d5e88f7d?auto=format&fit=crop&w=800&q=80')"><span data-i18n="afterLabel">After</span></div>
-            </div>
+            <div class="gallery-photo" style="background-image:url('assets/project-2.jpg')"></div>
             <div class="gallery-copy">
               <h3 data-i18n="gallery2Title">Bathroom renovation</h3>
               <p data-i18n="gallery2Text">Upgraded tile, shower area, vanity, and a more polished finish.</p>
@@ -1249,10 +1110,7 @@
           </article>
 
           <article class="gallery-card">
-            <div class="before-after">
-              <div class="before" style="background-image:url('https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=800&q=80')"><span data-i18n="beforeLabel">Before</span></div>
-              <div class="after" style="background-image:url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80')"><span data-i18n="afterLabel">After</span></div>
-            </div>
+            <div class="gallery-photo" style="background-image:url('assets/project-3.jpg')"></div>
             <div class="gallery-copy">
               <h3 data-i18n="gallery3Title">Exterior improvement</h3>
               <p data-i18n="gallery3Text">Fresh paint, cleaner surfaces, and stronger curb appeal.</p>
@@ -1262,50 +1120,148 @@
       </div>
     </section>
 
-    <section class="section highlight" id="reviews">
+    <section class="faq-hero" id="faq">
+      <div class="container faq-hero-inner">
+        <h2 data-i18n="faqHeroTitle">FAQ.</h2>
+        <div class="breadcrumb" data-i18n="faqBreadcrumb">Home / FAQ</div>
+      </div>
+    </section>
+
+    <section class="section faq-section">
       <div class="container">
-        <span class="eyebrow" data-i18n="reviewsEyebrow">Customer feedback</span>
-        <h2 class="section-title" data-i18n="reviewsTitle">5-star client comments</h2>
-        <p class="section-subtitle" data-i18n="reviewsSubtitle">These are sample testimonials you can replace later with real customer feedback from your projects.</p>
+        <div class="faq-header">
+          <div class="eyebrow" data-i18n="faqEyebrow">Helping you make informed decisions</div>
+          <h2 class="section-title" data-i18n="faqTitle">Frequently Asked Questions</h2>
+        </div>
 
-        <div class="reviews-grid">
-          <article class="review-card">
-            <div class="stars">★★★★★</div>
-            <p data-i18n="review1Text">Carlos and his team transformed our kitchen beautifully. The finish looks elegant, the work was clean, and they were very professional from start to finish.</p>
-            <div class="reviewer">— Melissa R.</div>
-          </article>
+        <div class="faq-list">
+          <div class="faq-item active">
+            <button class="faq-question" type="button">
+              <span data-i18n="faq1Question">What services does Carlos Construction Agency offer?</span>
+              <span>⌄</span>
+            </button>
+            <div class="faq-answer" data-i18n="faq1Answer">We provide remodeling, repairs, kitchens, bathrooms, roofing, siding, gutters, painting, flooring, tile, drywall, basement finishing, concrete work, doors, windows, plumbing, electrical, and power washing.</div>
+          </div>
 
-          <article class="review-card">
-            <div class="stars">★★★★★</div>
-            <p data-i18n="review2Text">We hired them for bathroom remodeling and painting. Everything looked amazing, and they paid attention to every detail. Highly recommended.</p>
-            <div class="reviewer">— Daniel T.</div>
-          </article>
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span data-i18n="faq2Question">How can I get a quote for my construction project?</span>
+              <span>⌄</span>
+            </button>
+            <div class="faq-answer" data-i18n="faq2Answer">You can contact the team directly on WhatsApp or use the contact form to request a technical visit and explain the repair or remodeling service you need.</div>
+          </div>
 
-          <article class="review-card">
-            <div class="stars">★★★★★</div>
-            <p data-i18n="review3Text">Excellent service. They helped with drywall, flooring, and repairs in the basement. Great communication and beautiful results.</p>
-            <div class="reviewer">— Patricia M.</div>
-          </article>
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span data-i18n="faq3Question">Do you work on both interior and exterior projects?</span>
+              <span>⌄</span>
+            </button>
+            <div class="faq-answer" data-i18n="faq3Answer">Yes. Carlos Construction Agency works on interior and exterior improvements, including remodeling, repairs, curb appeal upgrades, and general home improvement solutions.</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="cta">
-          <div>
-            <h2 data-i18n="ctaTitle">Ready to upgrade your home?</h2>
-            <p data-i18n="ctaText">Contact Carlos Construction Agency today and start your next remodeling or repair project with confidence.</p>
+    <section class="section contact-section" id="contact">
+      <div class="container contact-layout">
+        <aside class="contact-card">
+          <div class="contact-card-top" data-i18n="contactCardTitle">Contact:</div>
+          <div class="contact-card-body">
+            <div class="contact-block">
+              <strong>Phone:</strong>
+              <a href="https://wa.me/17322778283" target="_blank" rel="noreferrer">+1 (732) 277-8283</a>
+              <a href="https://wa.me/17322937117" target="_blank" rel="noreferrer">+1 (732) 293-7117</a>
+            </div>
+
+            <div class="contact-block">
+              <strong data-i18n="contactCoverageLabel">Service Coverage:</strong>
+              <span data-i18n="coverageValue">Home remodeling, repairs, interior and exterior improvements</span>
+            </div>
+
+            <div class="contact-block">
+              <strong data-i18n="contactVisitLabel">Technical Visit:</strong>
+              <span data-i18n="contactVisitText">Request a visit so we can evaluate the repair or remodeling you need.</span>
+            </div>
           </div>
-          <a href="#contact" class="btn btn-primary" data-i18n="ctaButton">Contact Us</a>
+        </aside>
+
+        <div class="contact-form-panel">
+          <h2 data-i18n="contactTitle">Contact us</h2>
+
+          <form class="contact-form" id="visitForm">
+            <div class="form-grid">
+              <div class="field">
+                <label for="firstName" data-i18n="firstNameLabel">First name</label>
+                <input id="firstName" type="text" required />
+              </div>
+              <div class="field">
+                <label for="lastName" data-i18n="lastNameLabel">Last name</label>
+                <input id="lastName" type="text" />
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="email" data-i18n="emailLabel">Email</label>
+                <input id="email" type="email" />
+              </div>
+              <div class="field">
+                <label for="phone" data-i18n="phoneLabel">Phone</label>
+                <input id="phone" type="tel" required />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="service" data-i18n="serviceTypeLabel">Type of service</label>
+              <select id="service" required>
+                <option value="" data-i18n="serviceSelectDefault">Type of service</option>
+                <option value="Kitchen Remodeling" data-en="Kitchen Remodeling" data-es="Remodelación de cocina">Kitchen Remodeling</option>
+                <option value="Bathroom Remodeling" data-en="Bathroom Remodeling" data-es="Remodelación de baño">Bathroom Remodeling</option>
+                <option value="Roofing" data-en="Roofing" data-es="Techos">Roofing</option>
+                <option value="Painting" data-en="Painting" data-es="Pintura">Painting</option>
+                <option value="Basement Finishing" data-en="Basement Finishing" data-es="Terminación de sótano">Basement Finishing</option>
+                <option value="Flooring / Tile / Drywall" data-en="Flooring / Tile / Drywall" data-es="Pisos / Tile / Drywall">Flooring / Tile / Drywall</option>
+                <option value="Concrete / Sidewalks / Steps" data-en="Concrete / Sidewalks / Steps" data-es="Concreto / Aceras / Escalones">Concrete / Sidewalks / Steps</option>
+                <option value="Doors / Windows" data-en="Doors / Windows" data-es="Puertas / Ventanas">Doors / Windows</option>
+                <option value="Plumbing / Electrical" data-en="Plumbing / Electrical" data-es="Plomería / Electricidad">Plumbing / Electrical</option>
+                <option value="Power Washing" data-en="Power Washing" data-es="Lavado a presión">Power Washing</option>
+                <option value="Other" data-en="Other" data-es="Otro">Other</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="message" data-i18n="messageLabel">Message</label>
+              <textarea id="message" required></textarea>
+            </div>
+
+            <div class="form-submit">
+              <button class="btn btn-primary" type="submit" data-i18n="submitButton">Submit</button>
+            </div>
+          </form>
         </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container cta-row">
+        <div>
+          <h3 data-i18n="ctaTitle">Ready to upgrade your home?</h3>
+          <p data-i18n="ctaText">Contact Carlos Construction Agency today and start your next remodeling or repair project with confidence.</p>
+        </div>
+        <a href="#contact" class="btn btn-primary" data-i18n="ctaButton">Contact Us</a>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container">
-      <p><strong>Carlos Construction Agency</strong> — <span data-i18n="footerText">Professional home remodeling and repair services.</span></p>
+    <div class="container footer-row">
+      <nav class="footer-nav">
+        <a href="#gallery" data-i18n="footerSubscribe">Subscribe</a>
+        <a href="#contact" data-i18n="footerContact">Contact</a>
+        <a href="#services" data-i18n="footerBrowse">Browse</a>
+        <a href="#services" data-i18n="footerServices">Services</a>
+      </nav>
+      <div class="footer-brand">CARLOS</div>
     </div>
   </footer>
 
@@ -1314,33 +1270,30 @@
   <script>
     const translations = {
       en: {
+        navHome: 'Home',
+        navAbout: 'About Us',
         navServices: 'Services',
-        navGallery: 'Our Work',
-        navReviews: 'Reviews',
-        navContact: 'Contact',
-        heroBadge: 'Professional Home Remodeling & Repairs',
+        navBlog: 'Blog',
+        navFaq: 'FAQ',
+        navContactButton: 'Contact',
+        heroBadge: 'Building Excellence',
         heroTitle: 'Reliable remodeling solutions for kitchens, bathrooms, roofs, basements, and more.',
         heroText: 'Carlos Construction Agency delivers quality craftsmanship, clean finishes, and dependable service for homeowners who want beautiful and durable results.',
-        heroCtaPrimary: 'Request a Free Estimate',
-        heroCtaSecondary: 'See Our Work',
+        heroCtaPrimary: 'Services',
+        heroCtaSecondary: 'Contact',
         statOne: 'Years of combined hands-on experience',
         statTwo: 'Focused on detail, finish, and client satisfaction',
-        contactTitle: 'Talk to our team today',
-        contactIntro: 'Reach out directly or request a technical visit so we can evaluate the repair or remodeling service you need.',
-        coverageLabel: 'Service coverage',
-        coverageValue: 'Home remodeling, repairs, interior and exterior improvements',
-        visitTitle: 'Request a technical visit',
-        visitSubtitle: 'Fill out the form and we’ll prepare your visit request message.',
-        serviceSelectDefault: 'Type of service',
-        visitButton: 'Request Visit',
-        visitNote: 'This form opens WhatsApp with your request already written so the team can review your information quickly.',
-        trust1Title: 'Professional service',
-        trust1Text: 'Clear communication and dependable project support.',
-        trust2Title: 'Quality finishes',
-        trust2Text: 'Detail-oriented work for durable and polished results.',
-        trust3Title: 'Technical visit requests',
-        trust3Text: 'A faster way to evaluate the repair or upgrade you need.',
-        servicesEyebrow: 'Complete residential solutions',
+        heroSeal: 'Trusted Experts',
+        aboutEyebrow: 'Building Excellence',
+        aboutTitle: 'Why homeowners choose Carlos Construction Agency',
+        aboutText: 'We combine professionalism, practical solutions, and visually strong finishes that help your home feel renewed and valuable.',
+        aboutButton: 'Read More About Us',
+        aboutClients: 'Satisfied Clients',
+        metric1: 'Commercial Projects',
+        metric2: 'Completed Projects',
+        metric3: 'Ongoing Projects',
+        metric4: 'Years Experience',
+        servicesEyebrow: 'Our Services',
         servicesTitle: 'Full-service construction and remodeling',
         servicesSubtitle: 'From small repairs to large upgrades, we provide skilled labor and professional project execution for the services shown in your flyer.',
         service1Title: 'Kitchen & Bathroom Remodeling',
@@ -1361,67 +1314,72 @@
         service8Text: 'Restore curb appeal by removing dirt, buildup, and weather stains from exterior surfaces.',
         service9Title: 'Professional Results',
         service9Text: 'Clear communication, polished workmanship, and a professional look on both mobile and desktop.',
-        whyEyebrow: 'Why clients choose us',
-        whyTitle: 'Why homeowners choose Carlos Construction Agency',
-        whySubtitle: 'We combine professionalism, practical solutions, and visually strong finishes that help your home feel renewed and valuable.',
-        feature1Title: 'Clean, trustworthy service',
-        feature1Text: 'We aim to deliver organized projects, clear communication, and dependable timelines.',
-        feature2Title: 'Interior and exterior expertise',
-        feature2Text: 'One company for remodeling, repairs, finishes, upgrades, and curb-appeal improvements.',
-        feature3Title: 'Mobile-ready contact options',
-        feature3Text: 'Visitors can switch language and contact the correct WhatsApp number with one tap.',
-        aboutTitle: 'Professional home improvement presentation',
-        aboutText: 'This website is designed to feel premium and modern, with bilingual navigation, responsive layouts, before-and-after showcase sections, and strong calls to action for new clients.',
-        galleryEyebrow: 'Before and after showcase',
+        galleryEyebrow: 'Construction Tips',
         galleryTitle: 'Rate our work',
         gallerySubtitle: 'Use this area to show before-and-after photos of your projects. Replace these example images with your own job photos inside the assets folder.',
-        beforeLabel: 'Before',
-        afterLabel: 'After',
         gallery1Title: 'Kitchen transformation',
         gallery1Text: 'Cabinets, countertops, backsplash, lighting, and a cleaner modern layout.',
         gallery2Title: 'Bathroom renovation',
         gallery2Text: 'Upgraded tile, shower area, vanity, and a more polished finish.',
         gallery3Title: 'Exterior improvement',
         gallery3Text: 'Fresh paint, cleaner surfaces, and stronger curb appeal.',
-        reviewsEyebrow: 'Customer feedback',
-        reviewsTitle: '5-star client comments',
-        reviewsSubtitle: 'These are sample testimonials you can replace later with real customer feedback from your projects.',
-        review1Text: 'Carlos and his team transformed our kitchen beautifully. The finish looks elegant, the work was clean, and they were very professional from start to finish.',
-        review2Text: 'We hired them for bathroom remodeling and painting. Everything looked amazing, and they paid attention to every detail. Highly recommended.',
-        review3Text: 'Excellent service. They helped with drywall, flooring, and repairs in the basement. Great communication and beautiful results.',
+        faqHeroTitle: 'FAQ.',
+        faqBreadcrumb: 'Home / FAQ',
+        faqEyebrow: 'Helping you make informed decisions',
+        faqTitle: 'Frequently Asked Questions',
+        faq1Question: 'What services does Carlos Construction Agency offer?',
+        faq1Answer: 'We provide remodeling, repairs, kitchens, bathrooms, roofing, siding, gutters, painting, flooring, tile, drywall, basement finishing, concrete work, doors, windows, plumbing, electrical, and power washing.',
+        faq2Question: 'How can I get a quote for my construction project?',
+        faq2Answer: 'You can contact the team directly on WhatsApp or use the contact form to request a technical visit and explain the repair or remodeling service you need.',
+        faq3Question: 'Do you work on both interior and exterior projects?',
+        faq3Answer: 'Yes. Carlos Construction Agency works on interior and exterior improvements, including remodeling, repairs, curb appeal upgrades, and general home improvement solutions.',
+        contactCardTitle: 'Contact:',
+        contactCoverageLabel: 'Service Coverage:',
+        coverageValue: 'Home remodeling, repairs, interior and exterior improvements',
+        contactVisitLabel: 'Technical Visit:',
+        contactVisitText: 'Request a visit so we can evaluate the repair or remodeling you need.',
+        contactTitle: 'Contact us',
+        firstNameLabel: 'First name',
+        lastNameLabel: 'Last name',
+        emailLabel: 'Email',
+        phoneLabel: 'Phone',
+        serviceTypeLabel: 'Type of service',
+        serviceSelectDefault: 'Type of service',
+        messageLabel: 'Message',
+        submitButton: 'Submit',
         ctaTitle: 'Ready to upgrade your home?',
         ctaText: 'Contact Carlos Construction Agency today and start your next remodeling or repair project with confidence.',
         ctaButton: 'Contact Us',
-        footerText: 'Professional home remodeling and repair services.'
+        footerSubscribe: 'Subscribe',
+        footerContact: 'Contact',
+        footerBrowse: 'Browse',
+        footerServices: 'Services'
       },
       es: {
+        navHome: 'Inicio',
+        navAbout: 'Nosotros',
         navServices: 'Servicios',
-        navGallery: 'Nuestros trabajos',
-        navReviews: 'Reseñas',
-        navContact: 'Contacto',
-        heroBadge: 'Remodelación y reparaciones profesionales para el hogar',
+        navBlog: 'Trabajos',
+        navFaq: 'FAQ',
+        navContactButton: 'Contacto',
+        heroBadge: 'Excelencia en construcción',
         heroTitle: 'Soluciones confiables de remodelación para cocinas, baños, techos, sótanos y mucho más.',
         heroText: 'Carlos Construction Agency ofrece mano de obra de calidad, acabados limpios y servicio confiable para propietarios que desean resultados duraderos y elegantes.',
-        heroCtaPrimary: 'Solicita un estimado gratis',
-        heroCtaSecondary: 'Ver nuestros trabajos',
+        heroCtaPrimary: 'Servicios',
+        heroCtaSecondary: 'Contacto',
         statOne: 'Años de experiencia práctica combinada',
         statTwo: 'Enfoque total en detalle, acabado y satisfacción del cliente',
-        contactTitle: 'Habla con nuestro equipo hoy',
-        contactIntro: 'Contáctanos directamente o solicita una visita técnica para evaluar la reparación o remodelación que necesitas.',
-        coverageLabel: 'Cobertura de servicios',
-        coverageValue: 'Remodelación del hogar, reparaciones y mejoras interiores y exteriores',
-        visitTitle: 'Solicita una visita técnica',
-        visitSubtitle: 'Completa el formulario y prepararemos tu mensaje de solicitud.',
-        serviceSelectDefault: 'Tipo de servicio',
-        visitButton: 'Solicitar visita',
-        visitNote: 'Este formulario abre WhatsApp con tu solicitud ya escrita para que el equipo revise tu información más rápido.',
-        trust1Title: 'Servicio profesional',
-        trust1Text: 'Comunicación clara y apoyo confiable para cada proyecto.',
-        trust2Title: 'Acabados de calidad',
-        trust2Text: 'Trabajo detallista para resultados duraderos y bien terminados.',
-        trust3Title: 'Solicitudes de visita técnica',
-        trust3Text: 'Una forma más rápida de evaluar la reparación o mejora que necesitas.',
-        servicesEyebrow: 'Soluciones residenciales completas',
+        heroSeal: 'Expertos confiables',
+        aboutEyebrow: 'Excelencia en construcción',
+        aboutTitle: 'Por qué los propietarios eligen a Carlos Construction Agency',
+        aboutText: 'Combinamos profesionalismo, soluciones prácticas y acabados visualmente sólidos que renuevan y valorizan tu hogar.',
+        aboutButton: 'Leer más sobre nosotros',
+        aboutClients: 'Clientes satisfechos',
+        metric1: 'Proyectos comerciales',
+        metric2: 'Proyectos completados',
+        metric3: 'Proyectos en curso',
+        metric4: 'Años de experiencia',
+        servicesEyebrow: 'Nuestros servicios',
         servicesTitle: 'Construcción y remodelación de servicio completo',
         servicesSubtitle: 'Desde reparaciones pequeñas hasta mejoras grandes, brindamos mano de obra calificada y ejecución profesional para todos los servicios de tu anuncio.',
         service1Title: 'Remodelación de cocina y baño',
@@ -1442,38 +1400,46 @@
         service8Text: 'Recupera la apariencia exterior eliminando suciedad, acumulación y manchas del clima.',
         service9Title: 'Resultados profesionales',
         service9Text: 'Comunicación clara, trabajo pulido y una presentación profesional en celular y computadora.',
-        whyEyebrow: 'Por qué nos eligen',
-        whyTitle: 'Por qué los propietarios eligen a Carlos Construction Agency',
-        whySubtitle: 'Combinamos profesionalismo, soluciones prácticas y acabados visualmente sólidos que renuevan y valorizan tu hogar.',
-        feature1Title: 'Servicio limpio y confiable',
-        feature1Text: 'Buscamos entregar proyectos organizados, comunicación clara y tiempos confiables.',
-        feature2Title: 'Experiencia interior y exterior',
-        feature2Text: 'Una sola empresa para remodelación, reparaciones, acabados, mejoras y renovación exterior.',
-        feature3Title: 'Opciones de contacto listas para móvil',
-        feature3Text: 'Los visitantes pueden cambiar de idioma y contactar el WhatsApp correcto con un toque.',
-        aboutTitle: 'Presentación profesional de mejoras para el hogar',
-        aboutText: 'Este sitio está diseñado para verse premium y moderno, con navegación bilingüe, diseño adaptable, secciones de antes y después y llamados a la acción sólidos para conseguir clientes.',
-        galleryEyebrow: 'Galería de antes y después',
+        galleryEyebrow: 'Consejos de construcción',
         galleryTitle: 'Califica nuestros trabajos',
         gallerySubtitle: 'Usa esta área para mostrar fotos de antes y después de tus proyectos. Reemplaza estas imágenes de ejemplo por fotos reales dentro de la carpeta assets.',
-        beforeLabel: 'Antes',
-        afterLabel: 'Después',
         gallery1Title: 'Transformación de cocina',
         gallery1Text: 'Gabinetes, countertops, backsplash, iluminación y una distribución más moderna y limpia.',
         gallery2Title: 'Renovación de baño',
         gallery2Text: 'Tile renovado, área de ducha, vanity y un acabado mucho más pulido.',
         gallery3Title: 'Mejora exterior',
         gallery3Text: 'Pintura fresca, superficies limpias y mejor apariencia de la fachada.',
-        reviewsEyebrow: 'Opiniones de clientes',
-        reviewsTitle: 'Comentarios de clientes con 5 estrellas',
-        reviewsSubtitle: 'Estas son reseñas de ejemplo que luego puedes reemplazar por comentarios reales de tus clientes.',
-        review1Text: 'Carlos y su equipo transformaron nuestra cocina de una forma increíble. El acabado se ve elegante, el trabajo fue limpio y fueron muy profesionales desde el inicio hasta el final.',
-        review2Text: 'Los contratamos para remodelar el baño y pintar varias áreas. Todo quedó hermoso y cuidaron cada detalle. Súper recomendados.',
-        review3Text: 'Excelente servicio. Nos ayudaron con drywall, pisos y reparaciones en el sótano. Muy buena comunicación y resultados hermosos.',
+        faqHeroTitle: 'FAQ.',
+        faqBreadcrumb: 'Inicio / FAQ',
+        faqEyebrow: 'Te ayudamos a tomar decisiones informadas',
+        faqTitle: 'Preguntas frecuentes',
+        faq1Question: '¿Qué servicios ofrece Carlos Construction Agency?',
+        faq1Answer: 'Ofrecemos remodelación, reparaciones, cocinas, baños, techos, siding, canaletas, pintura, pisos, tile, drywall, terminación de sótanos, concreto, puertas, ventanas, plomería, electricidad y lavado a presión.',
+        faq2Question: '¿Cómo puedo solicitar una cotización para mi proyecto?',
+        faq2Answer: 'Puedes contactar al equipo directamente por WhatsApp o usar el formulario para solicitar una visita técnica y explicar la reparación o remodelación que necesitas.',
+        faq3Question: '¿Trabajan tanto en proyectos interiores como exteriores?',
+        faq3Answer: 'Sí. Carlos Construction Agency trabaja en mejoras interiores y exteriores, incluyendo remodelaciones, reparaciones, mejoras visuales y soluciones generales para el hogar.',
+        contactCardTitle: 'Contacto:',
+        contactCoverageLabel: 'Cobertura de servicios:',
+        coverageValue: 'Remodelación del hogar, reparaciones y mejoras interiores y exteriores',
+        contactVisitLabel: 'Visita técnica:',
+        contactVisitText: 'Solicita una visita para evaluar la reparación o remodelación que necesitas.',
+        contactTitle: 'Contáctanos',
+        firstNameLabel: 'Nombre',
+        lastNameLabel: 'Apellido',
+        emailLabel: 'Correo',
+        phoneLabel: 'Teléfono',
+        serviceTypeLabel: 'Tipo de servicio',
+        serviceSelectDefault: 'Tipo de servicio',
+        messageLabel: 'Mensaje',
+        submitButton: 'Enviar',
         ctaTitle: '¿Listo para mejorar tu hogar?',
         ctaText: 'Contacta hoy a Carlos Construction Agency y comienza tu próximo proyecto de remodelación o reparación con confianza.',
         ctaButton: 'Contáctanos',
-        footerText: 'Servicios profesionales de remodelación y reparación para el hogar.'
+        footerSubscribe: 'Suscríbete',
+        footerContact: 'Contacto',
+        footerBrowse: 'Explorar',
+        footerServices: 'Servicios'
       }
     };
 
@@ -1488,13 +1454,8 @@
     const whatsappFloat = document.getElementById('whatsappFloat');
     const visitForm = document.getElementById('visitForm');
 
-    function updateFormPlaceholders(lang) {
-      document.querySelectorAll('[data-placeholder-en]').forEach((field) => {
-        const placeholder = field.getAttribute(`data-placeholder-${lang}`);
-        if (placeholder) field.placeholder = placeholder;
-      });
-
-      document.querySelectorAll('#serviceType option[data-en]').forEach((option) => {
+    function updateSelectOptions(lang) {
+      document.querySelectorAll('#service option[data-en]').forEach(option => {
         option.textContent = option.getAttribute(`data-${lang}`);
       });
     }
@@ -1509,7 +1470,7 @@
         }
       });
 
-      updateFormPlaceholders(lang);
+      updateSelectOptions(lang);
 
       languageToggle.textContent = lang === 'en' ? 'ES' : 'EN';
       whatsappFloat.href = `https://wa.me/${whatsappNumbers[lang]}`;
@@ -1524,37 +1485,43 @@
     }
 
     function buildWhatsAppMessage(lang) {
-      const name = document.getElementById('fullName').value.trim();
-      const phone = document.getElementById('phoneNumber').value.trim();
-      const email = document.getElementById('emailAddress').value.trim();
-      const service = document.getElementById('serviceType').value.trim();
-      const details = document.getElementById('projectDetails').value.trim();
+      const firstName = document.getElementById('firstName').value.trim();
+      const lastName = document.getElementById('lastName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const service = document.getElementById('service').value.trim();
+      const message = document.getElementById('message').value.trim();
 
       if (lang === 'es') {
-        return `Hola, me gustaría solicitar una visita técnica.%0A%0A` +
-          `Nombre: ${encodeURIComponent(name)}%0A` +
+        return `Hola, quiero solicitar una visita técnica.%0A%0A` +
+          `Nombre: ${encodeURIComponent((firstName + ' ' + lastName).trim())}%0A` +
           `Teléfono: ${encodeURIComponent(phone)}%0A` +
           `Correo: ${encodeURIComponent(email || 'No proporcionado')}%0A` +
           `Servicio: ${encodeURIComponent(service || 'No especificado')}%0A` +
-          `Detalles del proyecto: ${encodeURIComponent(details || 'Sin detalles adicionales')}`;
+          `Mensaje: ${encodeURIComponent(message || 'Sin detalles adicionales')}`;
       }
 
-      return `Hello, I would like to request a technical visit.%0A%0A` +
-        `Full Name: ${encodeURIComponent(name)}%0A` +
-        `Phone Number: ${encodeURIComponent(phone)}%0A` +
+      return `Hello, I want to request a technical visit.%0A%0A` +
+        `Name: ${encodeURIComponent((firstName + ' ' + lastName).trim())}%0A` +
+        `Phone: ${encodeURIComponent(phone)}%0A` +
         `Email: ${encodeURIComponent(email || 'Not provided')}%0A` +
         `Service: ${encodeURIComponent(service || 'Not specified')}%0A` +
-        `Project Details: ${encodeURIComponent(details || 'No additional details')}`;
+        `Message: ${encodeURIComponent(message || 'No additional details')}`;
     }
 
-    visitForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-
+    visitForm.addEventListener('submit', function(e) {
+      e.preventDefault();
       const message = buildWhatsAppMessage(currentLang);
       const number = whatsappNumbers[currentLang];
       const url = `https://wa.me/${number}?text=${message}`;
-
       window.open(url, '_blank', 'noopener,noreferrer');
+    });
+
+    document.querySelectorAll('.faq-question').forEach((button) => {
+      button.addEventListener('click', () => {
+        const item = button.parentElement;
+        item.classList.toggle('active');
+      });
     });
 
     languageToggle.addEventListener('click', () => {
